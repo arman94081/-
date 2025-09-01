@@ -1,5 +1,4 @@
-<html lang="mr">
-<head>
+<html lang="mr"><head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>हॉटेल तिरंगा - स्वादिष्ट महाराष्ट्रीयन पाककृती</title>
@@ -469,7 +468,7 @@
 <header>
   <div class="logo">हॉटेल तिरंगा</div>
   <div class="tagline">व्हेज – नॉनव्हेज, पार्किंग, स्वच्छता, स्पेशल डिश माहिती</div>
-  <button class="menu-toggle" id="menuToggle">
+  <button class="menu-toggle" id="menuToggle" fdprocessedid="72p5ni">
     <i class="fas fa-bars"></i>
   </button>
 </header>
@@ -557,7 +556,7 @@
           <h3>चिकन थाळी</h3>
           <p>मसालेदार चिकन </p>
           <span class="price">₹220 / थाळी</span>
-          <button class="order-btn" onclick="scrollToOrder()">ऑर्डर करा</button>
+          <button class="order-btn" onclick="scrollToOrder()" fdprocessedid="6xzi2pj">ऑर्डर करा</button>
         </div>
       </div>
       
@@ -569,7 +568,7 @@
           <h3>माटन ढवार थाळी"</h3>
           <p> मटण , भाकरी किंवा चावलासह.</p>
           <span class="price">₹280 / थाळी</span>
-          <button class="order-btn" onclick="scrollToOrder()">ऑर्डर करा</button>
+          <button class="order-btn" onclick="scrollToOrder()" fdprocessedid="ft3vpn">ऑर्डर करा</button>
         </div>
       </div>
       
@@ -580,7 +579,7 @@
         <div class="product-info">
           <h3>नाद करती काय थाळी</h3>
           <span class="price">₹250 / थाळी</span>
-          <button class="order-btn" onclick="scrollToOrder()">ऑर्डर करा</button>
+          <button class="order-btn" onclick="scrollToOrder()" fdprocessedid="os31f">ऑर्डर करा</button>
         </div>
       </div>
       
@@ -592,7 +591,7 @@
           <h3>मच्छी थाळी</h3>
           <p>ताज्या माशाची करी, भाकरी किंवा चावलासह.</p>
           <span class="price">₹240 / थाळी</span>
-          <button class="order-btn" onclick="scrollToOrder()">ऑर्डर करा</button>
+          <button class="order-btn" onclick="scrollToOrder()" fdprocessedid="1o18r">ऑर्डर करा</button>
         </div>
       </div>
     </div>
@@ -627,12 +626,12 @@
     <form class="order-form" onsubmit="sendOrder(); return false;">
       <div class="form-group">
         <label for="name">तुमचे नाव</label>
-        <input type="text" id="name" placeholder="तुमचे पूर्ण नाव" required="">
+        <input type="text" id="name" placeholder="तुमचे पूर्ण नाव" required="" fdprocessedid="qu8ap">
       </div>
       
       <div class="form-group">
         <label for="mobile">मोबाईल नंबर</label>
-        <input type="tel" id="mobile" placeholder="१०-अंकी मोबाईल नंबर" required="">
+        <input type="tel" id="mobile" placeholder="१०-अंकी मोबाईल नंबर" required="" fdprocessedid="oxnoo9">
       </div>
       
       <div class="form-group">
@@ -642,7 +641,7 @@
       
       <div class="form-group">
         <label for="product">थाळी निवडा</label>
-        <select id="product" required="">
+        <select id="product" required="" fdprocessedid="ywnhhlh">
           <option value="">थाळी निवडा</option>
           <option value="चिकन थाळी - ₹150">चिकन थाळी - ₹150</option>
           <option value="मटण धवा रस्सा थाळी - ₹250">माटन ढवार थाळी" - ₹250</option>
@@ -653,10 +652,10 @@
       
       <div class="form-group">
         <label for="quantity">प्रमाण</label>
-        <input type="number" id="quantity" placeholder="थाळ्यांची संख्या" required="" min="1">
+        <input type="number" id="quantity" placeholder="थाळ्यांची संख्या" required="" min="1" fdprocessedid="5a4xa">
       </div>
       
-      <button type="submit">
+      <button type="submit" fdprocessedid="y2itq">
         <i class="fab fa-whatsapp"></i> WhatsApp वर पाठवा
       </button>
     </form>
@@ -690,7 +689,7 @@
   <div class="developer-section">
     <h3>ही वेबसाइट कोणी तयार केली?</h3>
     <div class="developer-info">
-      <div class="web.developer">
+      <div class="web-developer">
         <img src="arman.jpg" alt="अरमान - वेब डेव्हलपर">
       </div>
       <div class="developer-details">
@@ -700,6 +699,18 @@
     </div>
   </div>
 </footer>
+
+<style>
+  .developer-info img {
+    width: 120px;       /* image size */
+    height: 120px;      /* equal ठेवली की circle बनेल */
+    border-radius: 50%; /* गोल करण्यासाठी */
+    object-fit: cover;  /* नीट crop होण्यासाठी */
+    border: 3px solid #fff; /* optional border */
+    box-shadow: 0px 2px 8px rgba(0,0,0,0.2); /* हलका shadow */
+  }
+</style>
+
 
 <script>
   // Mobile menu toggle
@@ -733,5 +744,6 @@
   }
 </script>
 
-</body>
-</html>
+
+
+<span id="PING_IFRAME_FORM_DETECTION" style="display: none;"></span></body></html>
