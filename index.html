@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>हॉटेल तिरंगा - स्वादिष्ट महाराष्ट्रीयन पाककृती</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+    body { background-color: #fff8f0; color: #333; line-height: 1.6; }
+    
+    /* Header Styles */
+    header { 
+      background: linear-gradient(to right, #e74c3c, #f39c12); 
+      color: white; 
+      padding: 2rem 0; 
+      text-align: center; 
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); 
+      position: relative;
+    }
+    .logo { 
+      font-size: 2.5rem; 
+      font-weight: bold; 
+      margin-bottom: 0.5rem; 
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+    .tagline { 
+      font-size: 1.2rem; 
+      opacity: 0.95; 
+      max-width: 90%;
+      margin: 0 auto;
+    }
+    
+    /* Navigation */
+    nav { 
+      background-color: #fff3e0; 
+      padding: 1rem 0; 
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1); 
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    nav ul { 
+      display: flex; 
+      justify-content: center; 
+      list-style: none; 
+      flex-wrap: wrap;
+    }
+    nav ul li a { 
+      text-decoration: none; 
+      color: #d35400; 
+      font-weight: 600; 
+      padding: 0.5rem 1rem; 
+      margin: 0 0.5rem; 
+      border-radius: 4px; 
+      transition: all 0.3s ease; 
+      display: block;
+    }
+    nav ul li a:hover { 
+      background-color: #e67e22; 
+      color: white; 
+    }
+    
+    /* Mobile Menu */
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: #d35400;
+      font-size: 1.5rem;
+      cursor: pointer;
+      position: absolute;
+      right: 1rem;
+      top: 0.5rem;
+    }
+    
+    /* Container and Sections */
+    .container { 
+      max-width: 1200px; 
+      margin: 2rem auto; 
+      padding: 0 1rem; 
+    }
+    .section { 
+      background: white; 
+      border-radius: 12px; 
+      padding: 2rem; 
+      margin-bottom: 2rem; 
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05); 
+    }
+    h2 { 
+      color: #e74c3c; 
+      margin-bottom: 1.5rem; 
+      text-align: center; 
+      border-bottom: 2px solid #f39c12; 
+      padding-bottom: 0.5rem; 
+      font-size: 1.8rem;
+    }
+    
+    /* About Section */
+    .about-content {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 2rem;
+    }
+    .about-text {
+      flex: 1;
+      min-width: 300px;
+    }
+    .about-image {
+      flex: 1;
+      min-width: 300px;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    .about-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .special-dishes {
+      margin-top: 1.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+    }
+    .dish-tag {
+      background: #ffeaa7;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-weight: 600;
+      color: #d35400;
+    }
+    
+    /* Info Box */
+    .info-box {
+      background: #fff3e0;
+      border-radius: 10px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      text-align: center;
+    }
+    .info-item {
+      margin: 0.8rem 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .info-item i {
+      margin-right: 10px;
+      color: #e74c3c;
+      font-size: 1.2rem;
+    }
+    
+    /* Products Section */
+    .products { 
+      display: grid; 
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+      gap: 2rem; 
+      margin-top: 1.5rem; 
+    }
+    .product-card { 
+      background: #fffdf9; 
+      border: 1px solid #f2d7d5; 
+      border-radius: 10px; 
+      overflow: hidden; 
+      transition: transform 0.3s ease, box-shadow 0.3s ease; 
+      text-align: center; 
+      display: flex;
+      flex-direction: column;
+    }
+    .product-card:hover { 
+      transform: translateY(-5px); 
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); 
+    }
+    .product-img { 
+      height: 200px; 
+      overflow: hidden;
+    }
+    .product-img img { 
+      width: 100%; 
+      height: 100%; 
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .product-card:hover .product-img img {
+      transform: scale(1.05);
+    }
+    .product-info { 
+      padding: 1.5rem; 
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .product-info h3 { 
+      color: #d35400; 
+      margin-bottom: 0.5rem; 
+    }
+    .price { 
+      color: #e74c3c; 
+      font-weight: bold; 
+      font-size: 1.2rem; 
+      display: block; 
+      margin: 0.5rem 0; 
+    }
+    .order-btn {
+      margin-top: auto;
+      background: #e67e22;
+      color: white;
+      border: none;
+      padding: 0.5rem;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+      font-weight: bold;
+    }
+    .order-btn:hover {
+      background: #d35400;
+    }
+    
+    /* Order Section */
+    .cta-box { 
+      text-align: center; 
+      padding: 3rem 2rem; 
+      background: linear-gradient(rgba(243, 156, 18, 0.9), rgba(231, 76, 60, 0.9)); 
+      color: white; 
+      border-radius: 12px; 
+      margin-bottom: 2rem;
+    }
+    .cta-box h2 { 
+      color: white; 
+      border-bottom: none; 
+    }
+    .order-form { 
+      max-width: 600px; 
+      margin: auto; 
+      background: #fff8f0; 
+      padding: 2rem; 
+      border-radius: 12px; 
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05); 
+    }
+    .form-group {
+      margin-bottom: 1rem;
+    }
+    .order-form label {
+      display: block;
+      margin-bottom: 0.3rem;
+      font-weight: 600;
+      color: #d35400;
+    }
+    .order-form input, .order-form select, .order-form textarea { 
+      width: 100%; 
+      padding: 0.8rem; 
+      margin: 0.3rem 0 0.6rem; 
+      border: 1px solid #ccc; 
+      border-radius: 8px; 
+      font-size: 1rem;
+    }
+    .order-form button { 
+      background-color: #25D366; 
+      color: white; 
+      padding: 0.8rem 1.5rem; 
+      border: none; 
+      border-radius: 8px; 
+      font-size: 1rem; 
+      cursor: pointer; 
+      transition: 0.3s; 
+      width: 100%;
+      font-weight: bold;
+    }
+    .order-form button:hover { 
+      background-color: #128C7E; 
+    }
+    
+    /* Features Section */
+    .features {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+    .feature {
+      text-align: center;
+      flex: 1;
+      min-width: 200px;
+      padding: 1rem;
+    }
+    .feature i {
+      font-size: 2.5rem;
+      color: #e74c3c;
+      margin-bottom: 0.5rem;
+    }
+    .feature h3 {
+      color: #d35400;
+      margin-bottom: 0.5rem;
+    }
+    
+    /* Footer */
+    footer { 
+      background-color: #333; 
+      color: #fff; 
+      text-align: center; 
+      padding: 2rem 0; 
+      margin-top: 2rem;
+    }
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+    .contact-info {
+      margin-bottom: 1rem;
+    }
+    .contact-info a {
+      color: #f39c12;
+      text-decoration: none;
+    }
+    .social-links {
+      margin: 1rem 0;
+    }
+    .social-links a {
+      color: white;
+      font-size: 1.5rem;
+      margin: 0 0.5rem;
+      transition: color 0.3s;
+    }
+    .social-links a:hover {
+      color: #f39c12;
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .logo {
+        font-size: 2rem;
+      }
+      .tagline {
+        font-size: 1rem;
+      }
+      nav ul {
+        flex-direction: column;
+        display: none;
+      }
+      nav ul.show {
+        display: flex;
+      }
+      .menu-toggle {
+        display: block;
+      }
+      .about-content {
+        flex-direction: column;
+      }
+      .products {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">हॉटेल तिरंगा</div>
+  <div class="tagline">व्हेज – नॉनव्हेज, पार्किंग, स्वच्छता, स्पेशल डिश माहिती</div>
+  <button class="menu-toggle" id="menuToggle">
+    <i class="fas fa-bars"></i>
+  </button>
+</header>
+
+<nav>
+  <ul id="navMenu">
+    <li><a href="#about">आमच्याबद्दल</a></li>
+    <li><a href="#features">सुविधा</a></li>
+    <li><a href="#products">मेनू</a></li>
+    <li><a href="#order">ऑर्डर करा</a></li>
+    <li><a href="#contact">संपर्क</a></li>
+  </ul>
+</nav>
+
+<div class="container">
+  <section id="about" class="section about">
+    <h2>आमची गोष्ट</h2>
+    <div class="about-content">
+      <div class="about-text">
+        <p>१९८५ पासून, हॉटेल तिरंगा महाराष्ट्रीयन पाककृतींचा खरा आणि अविस्मरणीय अनुभव देत आहे. आम्ही पारंपरिक कौशल्य आणि आधुनिक तंत्रज्ञानाचा मेळ घालून आपल्या ग्राहकांसाठी उत्तम स्वादिष्ट पदार्थ तयार करतो.</p>
+        
+        <div class="info-box">
+          <div class="info-item">
+            <i class="fas fa-clock"></i>
+            <span>जेवणाचे वेळ: दुपारी १२:०० ते रात्री ११:००</span>
+          </div>
+          <div class="info-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>स्थान: बार्शीपासून ७ किलोमीटर अंतरावर</span>
+          </div>
+          <div class="info-item">
+            <i class="fas fa-phone"></i>
+            <span>संपर्क: +९१ ९३५६१९८०५५ (टाईमपाससाठी कॉल करू नका)</span>
+          </div>
+        </div>
+        
+        <div class="special-dishes">
+          <span class="dish-tag">चिकन थाळी</span>
+          <span class="dish-tag">मटण धवा रस्सा थाळी</span>
+          <span class="dish-tag">नाड कार्ती थाळी</span>
+          <span class="dish-tag">मच्छी थाळी</span>
+        </div>
+      </div>
+      <div class="about-image">
+        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="हॉटेल तिरंगा आतील भाग">
+      </div>
+    </div>
+  </section>
+
+  <section id="features" class="section">
+    <h2>आमच्या सुविधा</h2>
+    <div class="features">
+      <div class="feature">
+        <i class="fas fa-utensils"></i>
+        <h3>व्हेज & नॉनव्हेज</h3>
+        <p>दोन्ही प्रकारचे स्वादिष्ट पदार्थ</p>
+      </div>
+      <div class="feature">
+        <i class="fas fa-parking"></i>
+        <h3>मोफत पार्किंग</h3>
+        <p>राहण्यासाठी पुरेशी जागा</p>
+      </div>
+      <div class="feature">
+        <i class="fas fa-soap"></i>
+        <h3>स्वच्छता</h3>
+        <p>पूर्ण स्वच्छतेची खात्री</p>
+      </div>
+      <div class="feature">
+        <i class="fas fa-users"></i>
+        <h3>पारिवारिक वातावरण</h3>
+        <p>कुटुंबासोबत जेवणाची आनंदी वातावरण</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="products" class="section">
+    <h2>आमचे विशेष थाळी</h2>
+    <div class="products">
+      <div class="product-card">
+        <div class="product-img">
+          <img src="https://images.unsplash.com/photo-1585937421612-70a008356fbe?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="चिकन थाळी">
+        </div>
+        <div class="product-info">
+          <h3>चिकन थाळी</h3>
+          <p>मसालेदार चिकन करी, भाकरी, चावल, सालाड आणि पापडासह.</p>
+          <span class="price">₹220 / थाळी</span>
+          <button class="order-btn" onclick="scrollToOrder()">ऑर्डर करा</button>
+        </div>
+      </div>
+      
+      <div class="product-card">
+        <div class="product-img">
+          <img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="मटण धवा रस्सा थाळी">
+        </div>
+        <div class="product-info">
+          <h3>मटण धवा रस्सा थाळी</h3>
+          <p>कोंकणी शैलीतील मटण करी, भाकरी किंवा चावलासह.</p>
+          <span class="price">₹280 / थाळी</span>
+          <button class="order-btn" onclick="scrollToOrder()">ऑर्डर करा</button>
+        </div>
+      </div>
+      
+      <div class="product-card">
+        <div class="product-img">
+          <img src="https://images.unsplash.com/photo-1594026112284-02bb6f3352fe?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="नाड कार्ती थाळी">
+        </div>
+        <div class="product-info">
+          <h3>नाड कार्ती थाळी</h3>
+          <p>नाड कार्तीची लज्जतदार करी, भाकरी आणि चावलासह.</p>
+          <span class="price">₹250 / थाळी</span>
+          <button class="order-btn" onclick="scrollToOrder()">ऑर्डर करा</button>
+        </div>
+      </div>
+      
+      <div class="product-card">
+        <div class="product-img">
+          <img src="https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="मच्छी थाळी">
+        </div>
+        <div class="product-info">
+          <h3>मच्छी थाळी</h3>
+          <p>ताज्या माशाची करी, भाकरी किंवा चावलासह.</p>
+          <span class="price">₹240 / थाळी</span>
+          <button class="order-btn" onclick="scrollToOrder()">ऑर्डर करा</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="order" class="section">
+    <div class="cta-box">
+      <h2>आजच ऑर्डर करा!</h2>
+      <p>खालील फॉर्म भरून WhatsApp वर थेट ऑर्डर पाठवा.</p>
+      <p style="margin-top: 10px; font-size: 0.9rem;">टाईमपाससाठी कॉल करू नका 👑🦅</p>
+    </div>
+
+    <form class="order-form" onsubmit="sendOrder(); return false;">
+      <div class="form-group">
+        <label for="name">तुमचे नाव</label>
+        <input type="text" id="name" placeholder="तुमचे पूर्ण नाव" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="mobile">मोबाईल नंबर</label>
+        <input type="tel" id="mobile" placeholder="१०-अंकी मोबाईल नंबर" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="address">पत्ता</label>
+        <textarea id="address" rows="3" placeholder="तुमचा संपूर्ण पत्ता" required></textarea>
+      </div>
+      
+      <div class="form-group">
+        <label for="product">थाळी निवडा</label>
+        <select id="product" required>
+          <option value="">थाळी निवडा</option>
+          <option value="चिकन थाळी - ₹220">चिकन थाळी - ₹220</option>
+          <option value="मटण धवा रस्सा थाळी - ₹280">मटण धवा रस्सा थाळी - ₹280</option>
+          <option value="नाड कार्ती थाळी - ₹250">नाड कार्ती थाळी - ₹250</option>
+          <option value="मच्छी थाळी - ₹240">मच्छी थाळी - ₹240</option>
+        </select>
+      </div>
+      
+      <div class="form-group">
+        <label for="quantity">प्रमाण</label>
+        <input type="number" id="quantity" placeholder="थाळ्यांची संख्या" required min="1">
+      </div>
+      
+      <button type="submit">
+        <i class="fab fa-whatsapp"></i> WhatsApp वर पाठवा
+      </button>
+    </form>
+  </section>
+</div>
+
+<footer id="contact">
+  <div class="footer-content">
+    <div class="contact-info">
+      <p><strong>संपर्क:</strong> <a href="tel:+919356198055">+९१ ९३५६१९८०५५</a></p>
+      <p><strong>पत्ता:</strong> बार्शीपासून ७ किलोमीटर अंतरावर</p>
+      <p><strong>खुल्याच वेळ:</strong> दुपारी १२:०० - रात्री ११:००</p>
+      <p style="margin-top: 10px;"><strong>टीप:</strong> टाईमपाससाठी कॉल करू नका 👑🦅</p>
+    </div>
+    
+    <p>© २०२३ हॉटेल तिरंगा. सर्व हक्क राखीव.</p>
+  </div>
+</footer>
+
+<script>
+  // Mobile menu toggle
+  document.getElementById('menuToggle').addEventListener('click', function() {
+    document.getElementById('navMenu').classList.toggle('show');
+  });
+  
+  // Scroll to order section
+  function scrollToOrder() {
+    document.getElementById('order').scrollIntoView({ behavior: 'smooth' });
+  }
+  
+  // Send order via WhatsApp
+  function sendOrder() {
+    let name = document.getElementById("name").value;
+    let mobile = document.getElementById("mobile").value;
+    let address = document.getElementById("address").value;
+    let product = document.getElementById("product").value;
+    let qty = document.getElementById("quantity").value;
+    
+    // Calculate total price
+    let priceMatch = product.match(/₹(\d+)/);
+    let pricePerItem = priceMatch ? parseInt(priceMatch[1]) : 0;
+    let totalPrice = pricePerItem * parseInt(qty);
+
+    let message = `नमस्कार, मला ऑर्डर करायचं आहे:%0A%0A👤 नाव: ${name}%0A📱 मोबाईल: ${mobile}%0A🏠 पत्ता: ${address}%0A%0A🛒 ऑर्डर तपशील:%0A${product}%0A📦 प्रमाण: ${qty} थाळी%0A%0A💰 एकूण किंमत: ₹${totalPrice}`;
+
+    let phone = "919356198055"; // +91 सोडून फक्त नंबर
+    let url = `https://wa.me/${phone}?text=${message}`;
+    window.open(url, "_blank");
+  }
+</script>
+
+</body>
+</html>
